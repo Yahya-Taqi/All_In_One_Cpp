@@ -21,10 +21,9 @@ This repository hosts code that demonstrates both fundamental and advanced techn
 3. Import and test the code.
 
 ## Contributing
-I welcome any contributions you can make to enhance this educational project:
+I welcome any contributions you can make to enhance the code:
 - **Bug Reports**: If you find a bug, please open an issue with a clear title and a descriptive message.
 - **Feature Requests**: Have ideas on how to improve the game? Open an issue with your suggestion.
-- **Pull Requests**: Want to add features or fix bugs? Fork the repository, make your changes, and create a pull request against the respective branch.
 
 ## License
 This project is open-sourced under the MIT License. See the LICENSE file for details.
