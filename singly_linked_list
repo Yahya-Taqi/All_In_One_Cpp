@@ -1,0 +1,160 @@
+/*
+- Do not use methods utilizing tail pointer with methods not utlizing tail pointer or you might not get the intented results.
+*/
+
+#include <iostream>
+using namespace std;
+
+template<typename T>
+struct Node
+{
+	T value;
+	Node* next;
+
+	Node() {}
+	Node(T val) : value(val), next(nullptr) {}
+};
+
+template<typename T>
+class SinglyLinkedList
+{
+private:
+	Node<T>* head = nullptr;
+	Node<T>* tail = nullptr;
+public:
+	SinglyLinkedList() = default;
+
+	// Insert at head - O(1)
+	void InsertAtHead(T item)
+	{
+		// 1. Make a new node
+		// 2. Make it point to the node pointed by head
+		// 3. Update the head node to point to the newly created node
+
+		Node<T>* newNode = new Node<T>(item);
+		// if the list is empty
+		if (head == nullptr)
+		{
+			head = tail = newNode;
+		}
+		// if not
+		else
+		{
+			// 2. add a new node and update the head node pointer
+			newNode->next = head;
+			head = newNode;
+		}
+	}
+
+	// Insert at tail - O(1)
+ 	void InsertAtTail(T item)
+	{
+		Node<T>* newNode = new Node<T>(item);
+		// if tail is empty
+		if (tail == nullptr)
+		{
+			head = tail = newNode;
+		}
+		else
+		{
+			tail->next = newNode;
+			tail = newNode;
+		}
+	}
+
+	// Insert at end = if tail is not available/allowed - 0(n)
+	void InsertAtEnd(T item)
+	{
+		Node<T>* newNode = new Node<T>(item);
+		if (head == nullptr)
+		{
+			head = tail = newNode;
+		}
+		// Loop through the whole list untill you find the last node
+		else
+		{
+			Node<T>* temp = head;
+			while (temp->next != nullptr)
+			{
+				temp = temp->next;
+			}
+			temp->next = newNode;
+		}
+	}
+
+	// Delete at head - O(1)
+	void DeleteAtHead()
+	{
+		if (head == nullptr)
+		{
+			cout << "Noting to delete." << endl;
+			return;
+		}
+		else
+		{
+			Node<T>* temp = head;
+			head = head->next;
+			delete temp;
+
+			// if the list becomes empty make sure to make the tail pointer null if using
+			if (head == nullptr) { tail = nullptr; }
+		}
+	}
+
+	// Delete at tail - O(n)
+	void DeleteAtTail()
+	{
+		if (head == nullptr)
+		{
+			cout << "Nothing to delete" << endl;
+		}
+		else
+		{
+			// If there is only one node
+			if (head == tail)
+			{
+				delete head;
+				head = tail = nullptr;
+			}
+			else
+			{
+				Node<T>* temp = head;
+				while (temp->next != tail)
+				{
+					temp = temp->next;
+				}
+				tail = temp;
+				delete tail->next;
+				tail->next = nullptr;
+			}
+		}
+	}
+
+	// Contains/Searching - O(n)
+	void Contains(T item)
+	{
+		if (head == nullptr) { cout << "List is empty" << endl; return; }
+		else
+		{
+			int index{ 0 };
+			Node<T>* temp = head;
+			while (temp != nullptr)
+			{
+				if (temp->value == item) { cout << "value found! at index " << index << endl; return; }
+				temp = temp->next;
+				index++;
+			}
+		}
+	}
+
+	// Display List
+	void Display(const char& separator = ' ')
+	{
+		Node<T>* temp = head;
+		while (temp != nullptr)
+		{
+			cout << temp->value << separator;
+			temp = temp->next;
+		}
+	}
+};
