@@ -1,22 +1,10 @@
 # All_In_One_Cpp
 
 ## Overview
-This repository hosts code that demonstrates both fundamental and advanced techniques, showcasing efficient and inefficient methods within a console-based game.
-
-## Features
-- **Comprehensive C++ Concepts**: From basic to advanced object-oriented programming, explore every nook and cranny of C++.
-- **Interactive Learning**: Engage with the game to see live demonstrations of how C++ concepts work in a dynamic environment.
-- **In-Code Commentary**: Detailed explanations are provided throughout the code to explain the hows and whys, catering to both beginners and experienced developers.
-
-## Getting Started
-
-### Prerequisites
-- Any code editor.
-- Basic understanding of C++ syntax and structure.
-- Before diving in have a look at the outline. [[Outline](https://github.com/Yahya-Taqi/All_In_One_Cpp/blob/main/Outline.pdf)]
+This repository hosts code that covers almost all concepts of cpp.
 
 ### Installation Guide
-1. Download the preferred code files after reading there description.
+1. Download the preferred code files after reading their description.
 2. Create Visual Studio Project.
 3. Import and test the code.
 
