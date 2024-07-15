@@ -21,6 +21,7 @@ private:
 	Node<T>* tail = nullptr;
 
 public:
+	DoublyLinkedList() = default;
 	// O(1)
 	void InsertAtHead(T item)
 	{
